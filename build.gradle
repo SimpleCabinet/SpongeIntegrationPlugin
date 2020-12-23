@@ -1,0 +1,29 @@
+plugins {
+    id 'org.spongepowered.plugin' version '0.8.1'
+}
+
+group = pluginGroup
+version = pluginVersion
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+repositories {
+    maven {
+        url "https://oss.sonatype.org/content/repositories/snapshots"
+    }
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.spongepowered:spongeapi:7.0.0'
+    compileOnly 'pro.gravit.launcher:serverwrapper-api:5.1.9-SNAPSHOT'
+    compileOnly 'pro.gravit.launcher:launcher-ws-api:5.1.9-SNAPSHOT'
+    compileOnly 'pro.gravit.launcher:launcher-core:5.1.9-SNAPSHOT'
+}
+
+sponge.plugin.id = pluginId
