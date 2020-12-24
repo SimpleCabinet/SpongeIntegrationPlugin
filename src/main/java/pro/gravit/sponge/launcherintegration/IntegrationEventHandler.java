@@ -35,13 +35,13 @@ public class IntegrationEventHandler implements ClientWebSocketService.EventHand
             UserItemDeliveryEvent deliveryEvent = (UserItemDeliveryEvent) event;
             Player player = Sponge.getServer().getPlayer(deliveryEvent.userUuid).orElse(null);
             if(player == null) {
-                LogHelper.info("Delivery order %d paused - player %s not online", deliveryEvent.orderId, deliveryEvent.userUsername);
+                /*LogHelper.info("Delivery order %d paused - player %s not online", deliveryEvent.orderId, deliveryEvent.userUsername);
                 ChangeOrderStatusRequest request = new ChangeOrderStatusRequest(deliveryEvent.orderId, ChangeOrderStatusRequest.OrderStatus.DELIVERY);
                 try {
                     Request.service.request(request);
                 } catch (IOException e) {
                     LogHelper.error(e);
-                }
+                }*/
             }
             else {
                 processDeliveryItemToPlayer(deliveryEvent.orderId, player, deliveryEvent.data, deliveryEvent.part);
